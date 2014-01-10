@@ -30,6 +30,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		text = (EditText) findViewById(R.id.Data);
+		System.out.println("here is a new change");
 	}
 
 	@Override
