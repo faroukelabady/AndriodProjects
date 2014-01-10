@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
 				+ sharedPrefs.getString(IP_VALUE,
 						getResources().getString(R.string.ip)));
 
-		builder.append("\n PORT: test "
+		builder.append("\n PORT: test midos write some stuff"
 				+ sharedPrefs.getString(PORT_VALUE,
 						getResources().getString(R.string.port)));
 
