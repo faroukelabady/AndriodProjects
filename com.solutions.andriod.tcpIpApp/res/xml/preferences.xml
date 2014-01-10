@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+ <PreferenceCategory android:title="@string/pref_conn" >
+        <EditTextPreference 
+            	android:title="@string/pref_ip_address" 
+            	android:summary="@string/pref_ip_address_summary" 
+            	android:key="IP"/>
+        
+        <EditTextPreference 
+            	android:title="@string/pref_port_num" 
+            	android:summary="@string/pref_port_num_summary" 
+            	android:key="PORT"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
