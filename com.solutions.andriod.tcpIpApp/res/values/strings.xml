@@ -13,11 +13,26 @@
     <string name="PortLabel">Enter Port</string>
     <string name="SetBtn">Set</string>
     <string name="pref_conn">Connection Settings</string>
-	<string name="pref_ip_address">Set IP Address</string>
-	<string name="pref_ip_address_summary">set IP connection</string>
-	<string name="pref_port_num">Set port num</string>
-	<string name="pref_port_num_summary">set port number to send data</string>
-	<string name="menu_settings">Settings</string>
-	
-	
+    <string name="pref_ip_address">Set IP Address</string>
+    <string name="pref_ip_address_summary">set IP connection</string>
+    <string name="pref_port_num">Set port num</string>
+    <string name="pref_port_num_summary">set port number to send data</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="logo">logo</string>
+    <string name="email">Email</string>
+    <string name="password">password</string>
+    <string name="login">Login</string>
+    <string name="register">New to 7elol? Register here</string>
+    <string name="Show">Show</string>
+    <string name="Hide">Hide</string>
+    <string name="ToggleFloorOne">ToggleFloorOne</string>
+    <string name="ToggleFloorTwo">ToggleFloorTwo</string>
+    <string name="ShowFloorOne">Show floor one controls</string>
+    <string name="ShowFloorTwo">Show Floor two controls</string>
+        <string name="HideFloorOne">Hide floor one controls</string>
+    <string name="HideFloorTwo">Hide Floor two controls</string>
+    <color name="mainColor">#e9d9a8</color>
+
 </resources>

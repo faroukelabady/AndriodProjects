@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/GridView1"
     android:layout_width="match_parent"
@@ -9,30 +9,139 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <EditText
-        android:id="@+id/Data"
-        android:layout_width="wrap_content"
-        android:layout_height="155dp"
-        android:ems="10"
-        android:inputType="textMultiLine" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="330dp"
+        android:background="#ffffff" >
 
-    <Button
-        android:id="@+id/Connect"
-        android:layout_width="101dp"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/Data"
-        android:layout_below="@+id/Data"
-        android:onClick="onClick"
-        android:text="@string/Connect" />
+        <EditText
+            android:id="@+id/Data"
+            android:layout_width="wrap_content"
+            android:layout_height="155dp"
+            android:ems="10"
+            android:inputType="textMultiLine" />
 
-    <Button
-        android:id="@+id/Send"
-        android:layout_width="105dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/Connect"
-        android:layout_alignBottom="@+id/Connect"
-        android:layout_alignLeft="@+id/Data"
-         android:onClick="onClick"
-        android:text="@string/Send" />
+        <Button
+            android:id="@+id/Send"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:onClick="onClick"
+            android:text="@string/Send" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/Connect"
+            android:layout_width="101dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/Data"
+            android:layout_alignBottom="@+id/Data"
+            android:layout_alignParentRight="true"
+            android:onClick="onClick"
+            android:text="@string/Connect" />
+
+        <ToggleButton
+            android:id="@+id/toggleFloorOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/Data"
+            android:layout_marginTop="22dp"
+            android:text="@string/ToggleFloorOne"
+            android:textOff="@string/Hide"
+            android:textOn="@string/Show" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/toggleFloorOne"
+            android:layout_alignBottom="@+id/toggleFloorOne"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:text="@string/ShowFloorOne" />
+
+        <LinearLayout
+            android:id="@+id/firstFlooer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toggleFloorOne"
+            android:orientation="vertical"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip" >
+
+            <ToggleButton
+                android:id="@+id/toggleButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="22dp" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="22dp"/>
+
+            <ToggleButton
+                android:id="@+id/toggleButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="22dp" />
+        </LinearLayout>
+
+        <ToggleButton
+            android:id="@+id/toggleFloor2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/firstFlooer"
+             android:textOff="@string/Hide"
+                android:textOn="@string/Show"
+            android:layout_marginTop="30dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/toggleFloor2"
+            android:layout_alignBottom="@+id/toggleFloor2"
+            android:layout_alignRight="@+id/textView1"
+            android:text="@string/ShowFloorTwo" />
+
+        <LinearLayout
+            android:id="@+id/secondFloor"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toggleFloor2"
+            android:orientation="vertical"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip" >
+
+            <ToggleButton
+                android:id="@+id/toggleButton6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="22dp" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="22dp" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="22dp"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>
