@@ -11,8 +11,7 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="330dp"
-        android:background="#ffffff" >
+        android:layout_height="330dp" >
 
         <EditText
             android:id="@+id/Data"
@@ -30,24 +29,24 @@
             android:onClick="onClick"
             android:text="@string/Send" />
 
-        <Button
-            android:id="@+id/Connect"
-            android:layout_width="101dp"
+        <ImageButton
+            android:id="@+id/btnSpeak"
+            android:layout_width="105dp"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/Data"
-            android:layout_alignBottom="@+id/Data"
+            android:layout_alignLeft="@+id/Send"
             android:layout_alignParentRight="true"
-            android:onClick="onClick"
-            android:text="@string/Connect" />
+            android:layout_below="@+id/Send"
+            android:contentDescription="@string/speak"
+            android:src="@android:drawable/ic_btn_speak_now" />
 
-        <ToggleButton
+        <Switch
             android:id="@+id/toggleFloorOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/Data"
-            android:layout_marginTop="22dp"
-            android:text="@string/ToggleFloorOne"
+            android:layout_marginTop="30dp"
+            android:onClick="showFloors"
             android:textOff="@string/Hide"
             android:textOn="@string/Show" />
 
@@ -61,87 +60,155 @@
             android:layout_marginLeft="15dp"
             android:text="@string/ShowFloorOne" />
 
-        <LinearLayout
-            android:id="@+id/firstFlooer"
+        <GridLayout
+            android:id="@+id/firstFloor"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/toggleFloorOne"
+            android:columnCount="2"
             android:orientation="vertical"
             android:paddingBottom="5dip"
             android:paddingTop="5dip" >
 
-            <ToggleButton
-                android:id="@+id/toggleButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginTop="22dp" />
+            <TextView
+                android:id="@+id/Room11"
+                android:layout_width="167dp"
+                android:layout_column="0"
+                android:layout_gravity="left|center_vertical"
+                android:layout_row="0"
+                android:text="@string/LightControl1" />
+
+            <TextView
+                android:id="@+id/Room12"
+                android:layout_width="167dp"
+                android:layout_column="0"
+                android:layout_gravity="left|center_vertical"
+                android:layout_row="1"
+                android:text="@string/LightControl2" />
+
+            <TextView
+                android:id="@+id/Room13"
+                android:layout_width="167dp"
+                android:layout_column="0"
+                android:layout_gravity="left|center_vertical"
+                android:layout_row="2"
+                android:text="@string/LightControl3" />
 
             <ToggleButton
-                android:id="@+id/toggleButton4"
+                android:id="@+id/light11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="1"
                 android:layout_gravity="right"
-                android:layout_marginTop="22dp"/>
+                android:layout_marginTop="22dp"
+                android:layout_row="0"
+                android:onClick="lightControl" />
 
             <ToggleButton
-                android:id="@+id/toggleButton5"
+                android:id="@+id/light12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="1"
                 android:layout_gravity="right"
-                android:layout_marginTop="22dp" />
-        </LinearLayout>
+                android:layout_marginTop="22dp"
+                android:layout_row="1"
+                android:onClick="lightControl" />
 
-        <ToggleButton
-            android:id="@+id/toggleFloor2"
+            <ToggleButton
+                android:id="@+id/light13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="right"
+                android:layout_marginTop="22dp"
+                android:layout_row="2"
+                android:onClick="lightControl" />
+        </GridLayout>
+
+        <Switch
+            android:id="@+id/toggleFloorTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/firstFlooer"
-             android:textOff="@string/Hide"
-                android:textOn="@string/Show"
-            android:layout_marginTop="30dp" />
+            android:layout_below="@+id/firstFloor"
+            android:layout_marginTop="30dp"
+            android:onClick="showFloors"
+            android:textOff="@string/Hide"
+            android:textOn="@string/Show" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/toggleFloor2"
-            android:layout_alignBottom="@+id/toggleFloor2"
+            android:layout_alignBaseline="@+id/toggleFloorTwo"
+            android:layout_alignBottom="@+id/toggleFloorTwo"
             android:layout_alignRight="@+id/textView1"
             android:text="@string/ShowFloorTwo" />
 
-        <LinearLayout
+        <GridLayout
             android:id="@+id/secondFloor"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/toggleFloor2"
+            android:layout_below="@+id/toggleFloorTwo"
+            android:columnCount="2"
             android:orientation="vertical"
             android:paddingBottom="5dip"
             android:paddingTop="5dip" >
 
-            <ToggleButton
-                android:id="@+id/toggleButton6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginTop="22dp" />
+            <TextView
+                android:id="@+id/Room21"
+                android:layout_width="167dp"
+                android:layout_column="0"
+                android:layout_gravity="left|center_vertical"
+                android:layout_row="0"
+                android:text="@string/LightControl1" />
+
+            <TextView
+                android:id="@+id/Room22"
+                android:layout_width="167dp"
+                android:layout_column="0"
+                android:layout_gravity="left|center_vertical"
+                android:layout_row="1"
+                android:text="@string/LightControl2" />
+
+            <TextView
+                android:id="@+id/Room23"
+                android:layout_width="167dp"
+                android:layout_column="0"
+                android:layout_gravity="left|center_vertical"
+                android:layout_row="2"
+                android:text="@string/LightControl3" />
 
             <ToggleButton
-                android:id="@+id/toggleButton7"
+                android:id="@+id/light21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginTop="22dp" />
-
-            <ToggleButton
-                android:id="@+id/toggleButton8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_column="1"
                 android:layout_gravity="right"
                 android:layout_marginTop="22dp"
-                />
-        </LinearLayout>
+                android:layout_row="0"
+                android:onClick="lightControl" />
+
+            <ToggleButton
+                android:id="@+id/light22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="right"
+                android:layout_marginTop="22dp"
+                android:layout_row="1"
+                android:onClick="lightControl" />
+
+            <ToggleButton
+                android:id="@+id/light23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="right"
+                android:layout_marginTop="22dp"
+                android:layout_row="2"
+                android:onClick="lightControl" />
+        </GridLayout>
     </RelativeLayout>
 
 </ScrollView>

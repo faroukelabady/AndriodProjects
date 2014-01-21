@@ -5,12 +5,27 @@
         <EditTextPreference 
             	android:title="@string/pref_ip_address" 
             	android:summary="@string/pref_ip_address_summary" 
-            	android:key="IP"/>
+            	android:key="IP"
+            	android:defaultValue="@string/ip"/>
         
         <EditTextPreference 
             	android:title="@string/pref_port_num" 
             	android:summary="@string/pref_port_num_summary" 
-            	android:key="PORT"/>
+            	android:key="PORT"
+            	android:defaultValue="@string/port"/>
+        
+        <CheckBoxPreference android:title="@string/pref_auto_detect" 
+            	android:summary="@string/pref_auto_detect_summary" 
+            	android:key="AUTO_DETECT"
+            	android:defaultValue="false"
+            	/>
+        
+        <CheckBoxPreference android:title="@string/pref_edit_before_send" 
+            	android:summary="@string/pref_edit_before_send_summary" 
+            	android:key="EDIT_BEFORE_SEND"
+            	android:defaultValue="false"
+            	/>
+        
     </PreferenceCategory>
 
 </PreferenceScreen>

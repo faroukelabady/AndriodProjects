@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    
     tools:context=".LoginActivity" >
 
     <RelativeLayout
@@ -106,7 +107,8 @@
             android:layout_width="fill_parent"
             android:layout_height="90dip"
             android:layout_alignParentBottom="true"
-            android:background="@layout/footer_repeat" >
+            android:background="@layout/footer_repeat"
+             >
 
             <ImageView
                 android:layout_width="fill_parent"
