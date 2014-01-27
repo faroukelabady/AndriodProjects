@@ -37,7 +37,8 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/Send"
             android:contentDescription="@string/speak"
-            android:src="@android:drawable/ic_btn_speak_now" />
+            android:src="@android:drawable/ic_btn_speak_now" 
+            android:onClick="speakBtn"/>
 
         <Switch
             android:id="@+id/toggleFloorOne"

@@ -94,20 +94,11 @@ public class MainActivity extends Activity {
 							getResources().getString(R.string.port));
 
 					try {
-
-						if (conn == null)
-							conn = new TcpConnection(ip, Integer.parseInt(port));
-						if (conn.isClose()) {
-							conn = new TcpConnection(ip, Integer.parseInt(port));
-						}
-					} catch (Exception e) {
-						Toast.makeText(this, "cannot connect",
-								Toast.LENGTH_LONG).show();
-						return;
+						new TcpConnection().execute(ip, port, text.get(0));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-
-					conn.sendData(text.get(0));
-					conn.closeConnection();
 				}
 
 			}
@@ -121,23 +112,23 @@ public class MainActivity extends Activity {
 	public void onClick(View view) throws NumberFormatException, IOException {
 		SharedPreferences sharedPrefs = PreferenceManager
 				.getDefaultSharedPreferences(this);
+		try {
 
-		switch (view.getId()) {
-		case R.id.Send:
-			System.out.println("Test2");
-			String ip = sharedPrefs.getString(IP_VALUE, getResources()
-					.getString(R.string.ip));
-			String port = sharedPrefs.getString(PORT_VALUE, getResources()
-					.getString(R.string.port));
-			if (conn == null)
-				conn = new TcpConnection(ip, Integer.parseInt(port));
-			if (conn.isClose()) {
-				conn = new TcpConnection(ip, Integer.parseInt(port));
+			switch (view.getId()) {
+			case R.id.Send:
+				System.out.println("Test2");
+				String ip = sharedPrefs.getString(IP_VALUE, getResources()
+						.getString(R.string.ip));
+				String port = sharedPrefs.getString(PORT_VALUE, getResources()
+						.getString(R.string.port));
+
+				new TcpConnection()
+						.execute(ip, port, text.getText().toString());
+				break;
 			}
-
-			conn.sendData(text.getText().toString());
-			conn.closeConnection();
-			break;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 
@@ -153,71 +144,66 @@ public class MainActivity extends Activity {
 
 		try {
 
-			if (conn == null)
-				conn = new TcpConnection(ip, Integer.parseInt(port));
-			if (conn.isClose()) {
-				conn = new TcpConnection(ip, Integer.parseInt(port));
+			switch (view.getId()) {
+			case R.id.light11:
+				lightToggle = (ToggleButton) findViewById(R.id.light11);
+				if (lightToggle.isChecked()) {
+					new TcpConnection().execute(ip, port, "Home open light 11");
+				} else {
+					new TcpConnection()
+							.execute(ip, port, "Home close light 11");
+				}
+				break;
+			case R.id.light12:
+				lightToggle = (ToggleButton) findViewById(R.id.light12);
+				if (lightToggle.isChecked()) {
+					new TcpConnection().execute(ip, port, "Home open light 12");
+				} else {
+					new TcpConnection()
+							.execute(ip, port, "Home close light 12");
+				}
+				break;
+			case R.id.light13:
+				lightToggle = (ToggleButton) findViewById(R.id.light13);
+				if (lightToggle.isChecked()) {
+					new TcpConnection().execute(ip, port, "Home open light 13");
+				} else {
+					new TcpConnection()
+							.execute(ip, port, "Home close light 13");
+				}
+				break;
+			case R.id.light21:
+				lightToggle = (ToggleButton) findViewById(R.id.light21);
+				if (lightToggle.isChecked()) {
+					new TcpConnection().execute(ip, port, "Home open light 21");
+				} else {
+					new TcpConnection()
+							.execute(ip, port, "Home close light 21");
+				}
+				break;
+			case R.id.light22:
+				lightToggle = (ToggleButton) findViewById(R.id.light22);
+				if (lightToggle.isChecked()) {
+					new TcpConnection().execute(ip, port, "Home open light 22");
+				} else {
+					new TcpConnection()
+							.execute(ip, port, "Home close light 22");
+				}
+				break;
+			case R.id.light23:
+				lightToggle = (ToggleButton) findViewById(R.id.light23);
+				if (lightToggle.isChecked()) {
+					new TcpConnection().execute(ip, port, "Home open light 23");
+				} else {
+					new TcpConnection()
+							.execute(ip, port, "Home close light 23");
+				}
+				break;
 			}
+
 		} catch (Exception e) {
 			Toast.makeText(this, "cannot connect", Toast.LENGTH_LONG).show();
 			return;
-		}
-
-		switch (view.getId()) {
-		case R.id.light11:
-			lightToggle = (ToggleButton) findViewById(R.id.light11);
-			if (lightToggle.isChecked()) {
-				conn.sendData("Home open light 11");
-			} else {
-				conn.sendData("Home close light 11");
-			}
-			conn.closeConnection();
-			break;
-		case R.id.light12:
-			lightToggle = (ToggleButton) findViewById(R.id.light12);
-			if (lightToggle.isChecked()) {
-				conn.sendData("Home open light 12");
-			} else {
-				conn.sendData("Home close light 12");
-			}
-			conn.closeConnection();
-			break;
-		case R.id.light13:
-			lightToggle = (ToggleButton) findViewById(R.id.light13);
-			if (lightToggle.isChecked()) {
-				conn.sendData("Home open light 13");
-			} else {
-				conn.sendData("Home close light 13");
-			}
-			conn.closeConnection();
-			break;
-		case R.id.light21:
-			lightToggle = (ToggleButton) findViewById(R.id.light21);
-			if (lightToggle.isChecked()) {
-				conn.sendData("Home open light 21");
-			} else {
-				conn.sendData("Home close light 21");
-			}
-			conn.closeConnection();
-			break;
-		case R.id.light22:
-			lightToggle = (ToggleButton) findViewById(R.id.light22);
-			if (lightToggle.isChecked()) {
-				conn.sendData("Home open light 22");
-			} else {
-				conn.sendData("Home close light 22");
-			}
-			conn.closeConnection();
-			break;
-		case R.id.light23:
-			lightToggle = (ToggleButton) findViewById(R.id.light23);
-			if (lightToggle.isChecked()) {
-				conn.sendData("Home open light 23");
-			} else {
-				conn.sendData("Home close light 23");
-			}
-			conn.closeConnection();
-			break;
 		}
 	}
 
