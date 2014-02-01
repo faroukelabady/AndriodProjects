@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.GridLayout;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -22,7 +24,7 @@ import android.widget.ToggleButton;
 import com.solutions.protocols.ConnectionProtocol;
 import com.solutions.protocols.TcpConnection;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnSeekBarChangeListener {
 
 	public static final String PREFS_NAME = "MyPrefsFile";
 	public static final String IP_VALUE = "IP";
@@ -34,6 +36,13 @@ public class MainActivity extends Activity {
 	EditText text;
 	GridLayout floorOne;
 	GridLayout floorTwo;
+	SeekBar light11 = null;
+	SeekBar light12 = null;
+	SeekBar light13 = null;
+	SeekBar light21 = null;
+	SeekBar light22 = null;
+	SeekBar light23 = null;
+	SeekBar light24 = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +54,23 @@ public class MainActivity extends Activity {
 		floorTwo = (GridLayout) findViewById(R.id.secondFloor);
 		floorOne.setVisibility(View.GONE);
 		floorTwo.setVisibility(View.GONE);
+
+		light11 = (SeekBar) findViewById(R.id.seek11);
+		light12 = (SeekBar) findViewById(R.id.seek12);
+		light13 = (SeekBar) findViewById(R.id.seek13);
+		light21 = (SeekBar) findViewById(R.id.seek21);
+		light22 = (SeekBar) findViewById(R.id.seek22);
+		light23 = (SeekBar) findViewById(R.id.seek23);
+		light24 = (SeekBar) findViewById(R.id.seek24);
+
+		light11.setOnSeekBarChangeListener(this);
+		light12.setOnSeekBarChangeListener(this);
+		light13.setOnSeekBarChangeListener(this);
+		light21.setOnSeekBarChangeListener(this);
+		light22.setOnSeekBarChangeListener(this);
+		light23.setOnSeekBarChangeListener(this);
+		light24.setOnSeekBarChangeListener(this);
+
 	}
 
 	@Override
@@ -148,55 +174,57 @@ public class MainActivity extends Activity {
 			case R.id.light11:
 				lightToggle = (ToggleButton) findViewById(R.id.light11);
 				if (lightToggle.isChecked()) {
-					new TcpConnection().execute(ip, port, "Home open light 11");
+					new TcpConnection().execute(ip, port, "open light one");
 				} else {
-					new TcpConnection()
-							.execute(ip, port, "Home close light 11");
+					new TcpConnection().execute(ip, port, "close light one");
 				}
 				break;
 			case R.id.light12:
 				lightToggle = (ToggleButton) findViewById(R.id.light12);
 				if (lightToggle.isChecked()) {
-					new TcpConnection().execute(ip, port, "Home open light 12");
+					new TcpConnection().execute(ip, port, "open light two");
 				} else {
-					new TcpConnection()
-							.execute(ip, port, "Home close light 12");
+					new TcpConnection().execute(ip, port, "close light two");
 				}
 				break;
 			case R.id.light13:
 				lightToggle = (ToggleButton) findViewById(R.id.light13);
 				if (lightToggle.isChecked()) {
-					new TcpConnection().execute(ip, port, "Home open light 13");
+					new TcpConnection().execute(ip, port, "open light three");
 				} else {
-					new TcpConnection()
-							.execute(ip, port, "Home close light 13");
+					new TcpConnection().execute(ip, port, "close light three");
 				}
 				break;
 			case R.id.light21:
 				lightToggle = (ToggleButton) findViewById(R.id.light21);
 				if (lightToggle.isChecked()) {
-					new TcpConnection().execute(ip, port, "Home open light 21");
+					new TcpConnection().execute(ip, port, "open light four");
 				} else {
-					new TcpConnection()
-							.execute(ip, port, "Home close light 21");
+					new TcpConnection().execute(ip, port, "close light four");
 				}
 				break;
 			case R.id.light22:
 				lightToggle = (ToggleButton) findViewById(R.id.light22);
 				if (lightToggle.isChecked()) {
-					new TcpConnection().execute(ip, port, "Home open light 22");
+					new TcpConnection().execute(ip, port, "open light five");
 				} else {
-					new TcpConnection()
-							.execute(ip, port, "Home close light 22");
+					new TcpConnection().execute(ip, port, "close light five");
 				}
 				break;
 			case R.id.light23:
 				lightToggle = (ToggleButton) findViewById(R.id.light23);
 				if (lightToggle.isChecked()) {
-					new TcpConnection().execute(ip, port, "Home open light 23");
+					new TcpConnection().execute(ip, port, "open light six");
 				} else {
-					new TcpConnection()
-							.execute(ip, port, "Home close light 23");
+					new TcpConnection().execute(ip, port, "close light six");
+				}
+				break;
+			case R.id.light24:
+				lightToggle = (ToggleButton) findViewById(R.id.light24);
+				if (lightToggle.isChecked()) {
+					new TcpConnection().execute(ip, port, "open light seven");
+				} else {
+					new TcpConnection().execute(ip, port, "close light seven");
 				}
 				break;
 			}
@@ -248,5 +276,38 @@ public class MainActivity extends Activity {
 			}
 			break;
 		}
+	}
+
+	@Override
+	public void onProgressChanged(SeekBar seekBar, int progress,
+			boolean fromUser) {
+		// TODO Auto-generated method stub
+		SharedPreferences sharedPrefs = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		String ip = sharedPrefs.getString(IP_VALUE,
+				getResources().getString(R.string.ip));
+		String port = sharedPrefs.getString(PORT_VALUE, getResources()
+				.getString(R.string.port));
+
+		try {
+			new TcpConnection().execute(ip, port, "" + seekBar.getId() + "-"
+					+ Integer.valueOf(String.valueOf(progress), 16));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public void onStartTrackingTouch(SeekBar seekBar) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onStopTrackingTouch(SeekBar seekBar) {
+		// TODO Auto-generated method stub
+
 	}
 }

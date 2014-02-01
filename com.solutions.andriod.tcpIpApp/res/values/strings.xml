@@ -42,5 +42,8 @@
     <string name="LightControl1">control Light One</string>
     <string name="LightControl2">control Light Two</string>
     <string name="LightControl3">control Light Three</string>
+    <string name="LightControl4">control Light Four</string>
+    
+    
 
 </resources>
