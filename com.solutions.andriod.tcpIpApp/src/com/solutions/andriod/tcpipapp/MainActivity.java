@@ -288,9 +288,34 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 				getResources().getString(R.string.ip));
 		String port = sharedPrefs.getString(PORT_VALUE, getResources()
 				.getString(R.string.port));
+		String seekBarname = "";
+
+		switch (seekBar.getId()) {
+		case R.id.seek11:
+			seekBarname = "seek11";
+			break;
+		case R.id.seek12:
+			seekBarname = "seek12";
+			break;
+		case R.id.seek13:
+			seekBarname = "seek13";
+			break;
+		case R.id.seek21:
+			seekBarname = "seek21";
+			break;
+		case R.id.seek22:
+			seekBarname = "seek22";
+			break;
+		case R.id.seek23:
+			seekBarname = "seek23";
+			break;
+		case R.id.seek24:
+			seekBarname = "seek24";
+			break;
+		}
 
 		try {
-			new TcpConnection().execute(ip, port, "" + seekBar.getId() + "-"
+			new TcpConnection().execute(ip, port, "" + seekBarname + "-"
 					+ Integer.valueOf(String.valueOf(progress), 16));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
