@@ -292,25 +292,25 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 
 		switch (seekBar.getId()) {
 		case R.id.seek11:
-			seekBarname = "seek11";
+			seekBarname = "seek1";
 			break;
 		case R.id.seek12:
-			seekBarname = "seek12";
+			seekBarname = "seek2";
 			break;
 		case R.id.seek13:
-			seekBarname = "seek13";
+			seekBarname = "seek3";
 			break;
 		case R.id.seek21:
-			seekBarname = "seek21";
+			seekBarname = "seek4";
 			break;
 		case R.id.seek22:
-			seekBarname = "seek22";
+			seekBarname = "seek5";
 			break;
 		case R.id.seek23:
-			seekBarname = "seek23";
+			seekBarname = "seek6";
 			break;
 		case R.id.seek24:
-			seekBarname = "seek24";
+			seekBarname = "seek7";
 			break;
 		}
 
