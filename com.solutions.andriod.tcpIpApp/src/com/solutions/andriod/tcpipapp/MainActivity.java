@@ -22,6 +22,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.solutions.protocols.ConnectionProtocol;
+import com.solutions.protocols.TCPServer;
 import com.solutions.protocols.TcpConnection;
 
 public class MainActivity extends Activity implements OnSeekBarChangeListener {
@@ -70,6 +71,8 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		light22.setOnSeekBarChangeListener(this);
 		light23.setOnSeekBarChangeListener(this);
 		light24.setOnSeekBarChangeListener(this);
+		
+//		new TCPServer(getBaseContext()).execute();
 
 	}
 
@@ -120,6 +123,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 							getResources().getString(R.string.port));
 
 					try {
+						this.text.setText(text.get(0));
 						new TcpConnection().execute(ip, port, text.get(0));
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
