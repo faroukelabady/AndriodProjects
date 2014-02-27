@@ -3,23 +3,17 @@ package com.solutions.protocols;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import com.solutions.andriod.tcpipapp.MainActivity;
+public class TCPServer implements ConnectionProtocol, Runnable {
 
-import android.content.Context;
-import android.os.AsyncTask;
-import android.widget.Toast;
+	// Context context;
 
-public class TCPServer extends AsyncTask<String, Void, Void> implements
-		ConnectionProtocol {
-
-	Context context;
-	
-	public TCPServer(Context context) {
+	public TCPServer() {
 		super();
-		this.context = context;
+		// this.context = context;
 	}
 
 	@Override
@@ -59,14 +53,20 @@ public class TCPServer extends AsyncTask<String, Void, Void> implements
 	}
 
 	@Override
-	protected Void doInBackground(String... params) {
+	public void run() {
+		// TODO Auto-generated method stub
 		String line = "";
 		ServerSocket TCPServerSocket = null;
 		for (;;) {
 			System.out.println("begin data receiving waiting for input.......");
 			try {
 				// get the next tcp client
-				TCPServerSocket = new ServerSocket(5001);
+
+				TCPServerSocket = new ServerSocket();
+				TCPServerSocket.setReuseAddress(true);
+				TCPServerSocket.bind(new InetSocketAddress(7650));
+				System.out.println("open on port"
+						+ TCPServerSocket.getLocalPort());
 				Socket client = TCPServerSocket.accept();
 				BufferedReader reader = new BufferedReader(
 						new InputStreamReader(client.getInputStream()));
@@ -78,8 +78,9 @@ public class TCPServer extends AsyncTask<String, Void, Void> implements
 					}
 					line = reader.readLine();
 					System.out.println("process Data" + line);
-					
-					Toast.makeText(context, "data recieved" + line , Toast.LENGTH_LONG).show();
+
+					// Toast.makeText(context, "data recieved" + line,
+					// Toast.LENGTH_LONG).show();
 					// Check for end of data
 
 				}

@@ -43,7 +43,10 @@
     <string name="LightControl2">control Light Two</string>
     <string name="LightControl3">control Light Three</string>
     <string name="LightControl4">control Light Four</string>
-    
+    <string name="normal">Normal</string>
+    <string name="alert">Alert</string>
+    <color name="alertColor">#EE3B3B</color>
+    <color name="normalColor">#228B22</color>
     
 
 </resources>

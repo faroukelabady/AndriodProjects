@@ -15,8 +15,7 @@ import android.os.AsyncTask;
  * @author farouk
  * 
  */
-public class TcpConnection extends AsyncTask<String, Void, Void> implements
-		ConnectionProtocol {
+public class TcpConnection extends AsyncTask<String, Void, Void> implements ConnectionProtocol {
 
 	// private parameters
 	private Socket TCPSocket; // client connection
@@ -48,8 +47,7 @@ public class TcpConnection extends AsyncTask<String, Void, Void> implements
 		// pw.print(format);
 		if (pw == null && TCPSocket != null) {
 			try {
-				pw = new PrintWriter(new OutputStreamWriter(
-						TCPSocket.getOutputStream()));
+				pw = new PrintWriter(new OutputStreamWriter(TCPSocket.getOutputStream()));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -116,11 +114,10 @@ public class TcpConnection extends AsyncTask<String, Void, Void> implements
 
 			// create printwriter object and assign the socket output
 			// stream to it using outputstreamwriter class
-			pw = new PrintWriter(new OutputStreamWriter(
-					TCPSocket.getOutputStream()));
+			pw = new PrintWriter(new OutputStreamWriter(TCPSocket.getOutputStream()));
 			System.out.println("Connection Open");
 
-			pw.print(arg0[2]);
+			pw.println(arg0[2]);
 			pw.flush();
 			pw.close();
 			TCPSocket.close();
@@ -130,7 +127,5 @@ public class TcpConnection extends AsyncTask<String, Void, Void> implements
 		}
 		return null;
 	}
-	
-	
 
 }
