@@ -6,6 +6,7 @@ package com.solutions.andriod.tcpipapp;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
@@ -31,5 +32,10 @@ public class NonFocusedScrollView extends ScrollView {
 	@Override
 	public ArrayList<View> getFocusables(int direction) {
 		return new ArrayList<View>();
+	}
+
+	@Override
+	protected boolean onRequestFocusInDescendants(int direction, Rect previouslyFocusedRect) {
+		return true;
 	}
 }
